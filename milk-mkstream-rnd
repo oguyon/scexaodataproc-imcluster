@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+
+MSdescr="Make random stream"
+
+MSextdescr="Create 2D stream with random values
+
+$(tput bold)EXAMPLES:$(tput sgr0)
+	${pname} infname 100 outfname 
+
+"
+
+
+source milk-script-std-config
+
+
+# prerequisites
+#
+RequiredCommands=()
+RequiredFiles=()
+RequiredDirs=()
+
+
+# SCRIPT ARGUMENTS (mandatory)
+# syntax: "name:type(s)/test(s):description"
+
+MSarg+=( "sname:string:stream name" )
+MSarg+=( "xsize:int:x size" )
+MSarg+=( "ysize:int:y size" )
+#MSarg+=( "outfile:string:output filename" )
+
+
+
+# SCRIPT OPTIONS
+# syntax: "short:long:functioncall:args[types]:description"
+
+#MSopt+=( "a:archive:archivefunc::archive .conf files" )
+#MSopt+=( "m:match:matchfunc:value[float]:check if value is match" )
+#MSopt+=( "s:stress:stressfunc:nbcpu[int] timeout[float]:run stress test" )
+
+
+# parse arguments
+# provides functions:
+# - checkFile, checkPipe, checkDir, cmdexists, checkCommand, printHELP
+source milk-argparse
+
+# pull paramters
+sname="${inputMSargARRAY[0]}"
+xsize="${inputMSargARRAY[1]}"
+ysize="${inputMSargARRAY[2]}"
+
+
+
+
+# Additional checks
+# if failing, will set EXITSTATUS to 1
+
+
+# checkFile "otherfileneeded.txt"
+# checkDir "somedir"
+
+#if [ $EXITSTATUS = 1 ]; then
+#    exit
+#fi
+
+
+
+# execute script commands
+
+milk-all << EOF
+imgen.mkrnd ..procinfo 1
+imgen.mkrnd .outim.shared 1
+imgen.mkrnd ..loopcntMax -1
+imgen.mkrnd ..triggermode 4
+imgen.mkrnd ..triggerdelay 0.001
+imgen.mkrnd ?
+imgen.mkrnd ${sname} ${xsize} ${ysize}
+exitCLI
+EOF
+
+
+
