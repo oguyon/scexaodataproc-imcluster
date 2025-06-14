@@ -1,6 +1,7 @@
 *.swp
 *.log
 *.fits
+sdata
 data
 clustout
 

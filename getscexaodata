@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+SRCDIR="/mnt/sdata/"
+DATESTR="20250514"
+
+# UNIX times
+TSTART="1747205267"
+TEND="1747205280"
+
+FLIST=(
+	"ocam2d/ocam2d_06:20*"
+)
+
+mkdir -p sdata
+for fname in "${FLIST[@]}"; do
+	echo "importing ${fname}"
+	rsync -au --progress scexao@sc6:/${SRCDIR}/${DATESTR}/${fname}.fits ./sdata/${DATESTR}/
+	rsync -au --progress scexao@sc6:/${SRCDIR}/${DATESTR}/${fname}.txt ./sdata/${DATESTR}/
+done
