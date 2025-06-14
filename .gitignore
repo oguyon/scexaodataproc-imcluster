@@ -1,0 +1,6 @@
+*.swp
+*.log
+*.fits
+data
+clustout
+
