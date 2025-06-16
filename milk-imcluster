@@ -80,7 +80,7 @@ clustering.cubeclust .T 10000.0
 clustering.cubeclust .leafposmode 1
 clustering.cubeclust .B 8
 clustering.cubeclust .opt.rebuild ON
-clustering.cubeclust .opt.condense OFF
+clustering.cubeclust .opt.condense ON
 clustering.cubeclust ?
 clustering.cubeclust imc clustout
 listim
