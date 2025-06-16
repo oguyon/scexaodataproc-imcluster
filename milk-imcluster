@@ -76,11 +76,11 @@ clustering.cubeclust ..procinfo 1
 
 loadfits "${fname}[*,*,1:500]" imc
 #clustering.cubeclust .T 0.996
-clustering.cubeclust .T 10000.0
-clustering.cubeclust .leafposmode 1
+clustering.cubeclust .T 12000.0
+clustering.cubeclust .leafposmode 0
 clustering.cubeclust .B 8
-clustering.cubeclust .opt.rebuild ON
-clustering.cubeclust .opt.condense OFF
+clustering.cubeclust .opt.rebuild OFF
+clustering.cubeclust .opt.condense ON
 clustering.cubeclust ?
 clustering.cubeclust imc clustout
 listim
