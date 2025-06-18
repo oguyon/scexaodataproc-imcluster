@@ -74,7 +74,7 @@ mload milkclustering
 clustering.cubeclust ..procinfo 1
 
 
-loadfits "${fname}[*,*,1:200]" imc
+loadfits "${fname}[*,*,1:1000]" imc
 #clustering.cubeclust .T 0.996
 
 clustering.cubeclust .T 21000.0
