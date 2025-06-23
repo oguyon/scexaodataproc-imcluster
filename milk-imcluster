@@ -74,10 +74,10 @@ mload milkclustering
 clustering.cubeclust ..procinfo 1
 
 
-loadfits "${fname}[*,*,1:4000]" imc
-clustering.cubeclust .NBCFmax 1024
+loadfits "${fname}[*,*,1:30000]" imc
+clustering.cubeclust .NBCFmax 4096
 
-clustering.cubeclust .T 22000.0
+clustering.cubeclust .T 20000.0
 clustering.cubeclust .leafposmode 0
 
 #clustering.cubeclust .T 10000.0
